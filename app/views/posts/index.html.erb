@@ -1,0 +1,25 @@
+<% content_for :title, "Posts" %>
+
+<div class="max-w-3xl mx-auto px-4 py-8">
+  <% if notice %>
+    <div class="mb-4 p-4 bg-green-100 text-green-800 rounded">
+      <%= notice %>
+    </div>
+  <% end %>
+
+  <h1 class="text-3xl font-bold text-gray-900 mb-4 text-center">Blog Posts</h1>
+  <div class="mb-6 flex justify-center">
+    <%= link_to "New Post", new_post_path, class: "inline-block px-5 py-2.5 bg-blue-600 text-white rounded-md shadow hover:bg-blue-700" %>
+  </div>
+
+  <div id="posts" class="space-y-6">
+    <% @posts.each do |post| %>
+      <div class="bg-white p-6 rounded shadow">
+        <%= render post %>
+        <div class="mt-4">
+          <%= link_to "Show this post", post, class: "text-blue-600 hover:underline font-medium" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
